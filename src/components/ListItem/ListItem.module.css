@@ -1,0 +1,54 @@
+.listItem {
+	border-radius: 20px;
+	border: 2px solid #1a1a1a;
+	margin-bottom: 15px;
+	padding: 10px 20px;
+	font-size: 24px;
+	box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: space-between;
+}
+
+.listItem:hover {
+	transform: scale(102%);
+}
+
+.iconBar {
+	display: flex;
+	padding: 0 20px;
+	width: 20%;
+	justify-content: space-around;
+	align-items: center;
+}
+.icon {
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+}
+/* HEART ICON */
+.iconHeartHover {
+	will-change: filter;
+	transition: filter 300ms;
+}
+.iconHeartHover:hover {
+	filter: drop-shadow(0 0 10px #df4c23be);
+}
+
+/* STAR ICON */
+.iconStarHover {
+	will-change: filter;
+	transition: filter 300ms;
+}
+.iconStarHover:hover {
+	filter: drop-shadow(0 0 10px #edbe18dc);
+}
+
+/* TRASH ICON */
+.iconTrashHover {
+	fill: #9e9c9c9a;
+	will-change: filter;
+	transition: filter 300ms;
+}
+.iconTrashHover:hover {
+	fill: #9e9c9cc2;
+}

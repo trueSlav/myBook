@@ -1,0 +1,46 @@
+.wrapper {
+	max-width: 100%;
+	display: flex;
+	align-items: flex-start;
+	border-bottom: 2px solid #1a1a1a;
+}
+
+.logoWrapper {
+	display: flex;
+	cursor: pointer;
+}
+.logo {
+	height: 6em;
+	padding: 1.5em;
+	will-change: filter;
+	transition: filter 300ms;
+}
+.logoWrapper > h1 {
+	color: rgba(255, 255, 255, 0.87);
+	will-change: color;
+	transition: color 300ms;
+}
+.logoWrapper:hover > .logo {
+	filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logoWrapper:hover > h1 {
+	color: #61dafbaa;
+}
+.logoWrapper.react:hover {
+	filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear;
+	}
+}
