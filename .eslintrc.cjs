@@ -13,6 +13,7 @@ module.exports = {
 	settings: { react: { version: '18.2' } },
 	plugins: ['react-refresh', 'import', 'prettier'],
 	rules: {
+		'react/prop-types': 'off',
 		'prettier/prettier': 'error',
 		'no-console': 'warn',
 		'react/jsx-no-target-blank': 'off',
@@ -26,13 +27,6 @@ module.exports = {
 			'error',
 			{ allowShortCircuit: true, allowTernary: true },
 		],
-
-		// 'no-restricted-imports': [
-		// 	'error',
-		// 	{
-		// 		patterns: ['../'],
-		// 	},
-		// ],
 
 		'react/self-closing-comp': ['error', { component: true, html: true }],
 

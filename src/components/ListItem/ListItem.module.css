@@ -7,6 +7,12 @@
 	box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
 	display: flex;
 	justify-content: space-between;
+	transition: 0.3s;
+}
+
+.textBlock {
+	max-width: 890px;
+	word-wrap: break-word;
 }
 
 .listItem:hover {
@@ -33,6 +39,9 @@
 .iconHeartHover:hover {
 	filter: drop-shadow(0 0 10px #df4c23be);
 }
+.heartActive {
+	fill: tomato;
+}
 
 /* STAR ICON */
 .iconStarHover {
@@ -41,6 +50,9 @@
 }
 .iconStarHover:hover {
 	filter: drop-shadow(0 0 10px #edbe18dc);
+}
+.starActive {
+	fill: #ebc849dc;
 }
 
 /* TRASH ICON */
