@@ -56,13 +56,22 @@ function App() {
 		);
 	};
 
-	const filterIcon = (icon) => {
-		const filtredIcons = books.filter((book) => book.icon === true);
-		const setFilter = setBooks(filtredIcons);
-		return {
-			filterIcon,
-			setFilter,
+	// class FilterIcon {
+	// 	filtredIcons = (icon) => books.filter((book) => book[icon] === true);
+
+	// 	setFilter(filtredIcons) {
+	// 		setBooks(filtredIcons());
+	// 	}
+	// }
+
+	const filterIcon = () => {
+		const filtredIcons = (icon) => books.filter((book) => book[icon] === true);
+
+		const setFilter = (icon) => {
+			setBooks(books.filter((book) => book[icon] === true));
 		};
+
+		return [filtredIcons, setFilter];
 	};
 
 	const filterLike = () => {
@@ -77,7 +86,11 @@ function App() {
 		<>
 			<Header />
 			<Info books={books} />
-			<Filter filterStar={filterStar} filterLike={filterLike} />
+			<Filter
+				filterIcon={filterIcon}
+				filterStar={filterStar}
+				filterLike={filterLike}
+			/>
 			<AddBook text={text} setText={setText} addBook={addBook} />
 			<List
 				books={books}
