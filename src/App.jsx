@@ -28,34 +28,13 @@ function App() {
 		}
 	};
 
-	const deleteBook = (id) => {
-		setBooks(books.filter((book) => book.id !== id));
-	};
-
-	const toggleIconActive = (prop, id) => {
-		setBooks(
-			books.map((book) => {
-				if (book.id !== id) return book;
-
-				return {
-					...book,
-					[prop]: !book[prop],
-				};
-			}),
-		);
-	};
-
 	return (
 		<>
 			<Header />
 			<Info books={books} filtredIcons={filtredIcons} setBooks={setBooks} />
 			<Filter setFilter={setFilter} />
 			<AddBook text={text} setText={setText} addBook={addBook} />
-			<List
-				books={books}
-				deleteBook={deleteBook}
-				toggleIconActive={toggleIconActive}
-			/>
+			<List books={books} setBooks={setBooks} />
 		</>
 	);
 }

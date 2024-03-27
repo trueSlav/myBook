@@ -1,6 +1,7 @@
 import Heart from '../../assets/heart.svg?react';
 import Star from '../../assets/star.svg?react';
 import Trash from '../../assets/trash.svg?react';
+import { activeIcons } from '../../utils/activeIcons';
 
 import styles, {
 	iconHeartHover,
@@ -46,19 +47,14 @@ const StarIcon = ({ id, star, toggleIconActive }) => {
 	);
 };
 
-const ListItem = ({
-	book,
-	i,
-	deleteBook,
-	id,
-	like,
-	star,
-	toggleIconActive,
-}) => {
-	const text = `${i}.${book}`;
+const ListItem = ({ books, setBooks, i, id, like, star, book }) => {
+	const [toggleIconActive, deleteBook] = activeIcons(books, setBooks);
+
 	return (
 		<li className={styles.listItem}>
-			<div className={styles.textBlock}>{text}</div>
+			<div className={styles.textBlock}>
+				{i}.{book}
+			</div>
 			<div className={styles.iconBar}>
 				<HeartIcon id={id} like={like} toggleIconActive={toggleIconActive} />
 				<StarIcon id={id} star={star} toggleIconActive={toggleIconActive} />
