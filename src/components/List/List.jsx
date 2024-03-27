@@ -2,7 +2,7 @@ import ListItem from '../ListItem/ListItem';
 
 import styles from './List.module.css';
 
-const List = ({ books, deleteBook, addLike, addStar }) => {
+const List = ({ books, deleteBook, toggleIconActive }) => {
 	return (
 		<ul className={styles.list}>
 			{books.map((book, i) => (
@@ -14,8 +14,7 @@ const List = ({ books, deleteBook, addLike, addStar }) => {
 					id={book.id}
 					like={book.like}
 					star={book.star}
-					addLike={addLike}
-					addStar={addStar}
+					toggleIconActive={toggleIconActive}
 				/>
 			))}
 		</ul>

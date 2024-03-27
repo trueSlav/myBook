@@ -32,27 +32,14 @@ function App() {
 		setBooks(books.filter((book) => book.id !== id));
 	};
 
-	const addLike = (id) => {
+	const toggleIconActive = (prop, id) => {
 		setBooks(
 			books.map((book) => {
 				if (book.id !== id) return book;
 
 				return {
 					...book,
-					like: !book.like,
-				};
-			}),
-		);
-	};
-
-	const addStar = (e, id) => {
-		setBooks(
-			books.map((book) => {
-				if (book.id !== id) return book;
-
-				return {
-					...book,
-					star: !book.star,
+					[prop]: !book[prop],
 				};
 			}),
 		);
@@ -67,8 +54,7 @@ function App() {
 			<List
 				books={books}
 				deleteBook={deleteBook}
-				addLike={addLike}
-				addStar={addStar}
+				toggleIconActive={toggleIconActive}
 			/>
 		</>
 	);

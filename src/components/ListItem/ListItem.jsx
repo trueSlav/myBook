@@ -8,7 +8,7 @@ import styles, {
 	iconTrashHover,
 } from './ListItem.module.css';
 
-const HeartIcon = ({ id, like, addLike }) => {
+const HeartIcon = ({ id, like, toggleIconActive }) => {
 	let likeStyle = `${styles.icon} ${iconHeartHover}`;
 
 	if (!like) {
@@ -16,10 +16,18 @@ const HeartIcon = ({ id, like, addLike }) => {
 	} else {
 		likeStyle = `${styles.icon} ${iconHeartHover} ${styles.heartActive}`;
 	}
-	return <Heart onClick={() => addLike(id)} className={likeStyle} />;
+	return (
+		<Heart
+			data-toggle="like"
+			onClick={(e) =>
+				toggleIconActive(e.currentTarget.getAttribute('data-toggle'), id)
+			}
+			className={likeStyle}
+		/>
+	);
 };
 
-const StarIcon = ({ id, star, addStar }) => {
+const StarIcon = ({ id, star, toggleIconActive }) => {
 	let starStyle = `${styles.icon} ${iconStarHover}`;
 
 	if (!star) {
@@ -27,7 +35,15 @@ const StarIcon = ({ id, star, addStar }) => {
 	} else {
 		starStyle = `${styles.icon} ${iconStarHover} ${styles.starActive}`;
 	}
-	return <Star onClick={(e) => addStar(e, id)} className={starStyle} />;
+	return (
+		<Star
+			data-toggle="star"
+			onClick={(e) =>
+				toggleIconActive(e.currentTarget.getAttribute('data-toggle'), id)
+			}
+			className={starStyle}
+		/>
+	);
 };
 
 const ListItem = ({
@@ -37,16 +53,15 @@ const ListItem = ({
 	id,
 	like,
 	star,
-	addLike,
-	addStar,
+	toggleIconActive,
 }) => {
 	const text = `${i}.${book}`;
 	return (
 		<li className={styles.listItem}>
 			<div className={styles.textBlock}>{text}</div>
 			<div className={styles.iconBar}>
-				<HeartIcon id={id} like={like} addLike={addLike} />
-				<StarIcon id={id} star={star} addStar={addStar} />
+				<HeartIcon id={id} like={like} toggleIconActive={toggleIconActive} />
+				<StarIcon id={id} star={star} toggleIconActive={toggleIconActive} />
 				<Trash
 					onClick={() => deleteBook(id)}
 					className={`${styles.icon} ${iconTrashHover}`}
