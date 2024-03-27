@@ -3,11 +3,7 @@ import MyInput from '../../UI/MyInput/MyInput';
 
 import styles from './Filter.module.css';
 
-const Filter = () => {
-	const clickBtn = () => {
-		console.log('click button');
-	};
-
+const Filter = ({ setFilter }) => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.inputWrapper}>
@@ -20,9 +16,9 @@ const Filter = () => {
 			</div>
 
 			<div className={styles.buttonWrapper}>
-				<MyButton onClick={clickBtn}>Показать все</MyButton>
-				<MyButton>Любимые книги</MyButton>
-				<MyButton>Буду читать</MyButton>
+				<MyButton>Показать все</MyButton>
+				<MyButton onClick={() => setFilter('like')}>Любимые книги</MyButton>
+				<MyButton onClick={() => setFilter('star')}>Буду читать</MyButton>
 			</div>
 		</div>
 	);
