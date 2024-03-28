@@ -2,3 +2,10 @@
 	list-style: none;
 	padding: 0;
 }
+
+.nothingText {
+	text-align: center;
+	color: #828485;
+	font-size: 2.2em;
+	margin-top: 50px;
+}

@@ -60,7 +60,7 @@ module.exports = {
 						position: 'before',
 					},
 					{
-						pattern: './src/utils/**',
+						pattern: '~/**/utils/**',
 						group: 'internal',
 						position: 'after',
 					},
