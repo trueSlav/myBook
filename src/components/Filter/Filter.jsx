@@ -18,7 +18,7 @@ const Filter = ({ setFilter, search, setSearch }) => {
 			</div>
 
 			<div className={styles.buttonWrapper}>
-				<MyButton>Показать все</MyButton>
+				<MyButton onClick={() => setFilter('all')}>Показать все</MyButton>
 				<MyButton onClick={() => setFilter('like')}>Любимые книги</MyButton>
 				<MyButton onClick={() => setFilter('star')}>Буду читать</MyButton>
 			</div>

@@ -8,13 +8,14 @@ import Filter from './components/Filter/Filter';
 import Header from './components/Header/Header';
 import Info from './components/Info/Info';
 import List from './components/List/List';
-import { filterIcon } from './utils/filterBook';
+import { useFilterBook } from './hooks/useFilterBook';
 
 function App() {
 	const [books, setBooks] = useState(data);
 	const [text, setText] = useState('');
-	const [search, setSearch] = useState('');
-	const [filtredIcons, setFilter] = filterIcon(books, setBooks);
+
+	const [filtredIcons, filtredData, setFilter, , setSearch, search] =
+		useFilterBook(books);
 
 	const addBook = () => {
 		if (text.trim().length) {
@@ -31,23 +32,13 @@ function App() {
 		}
 	};
 
-	const searchBook = (search, books) => {
-		if (search.length === 0) {
-			return books;
-		}
-
-		return books.filter((book) => book.text.indexOf(search) !== -1);
-	};
-
-	const visibleData = searchBook(search, books);
-
 	return (
 		<>
 			<Header />
 			<Info books={books} filtredIcons={filtredIcons} setBooks={setBooks} />
 			<Filter setSearch={setSearch} search={search} setFilter={setFilter} />
 			<AddBook text={text} setText={setText} addBook={addBook} />
-			<List books={visibleData} setBooks={setBooks} />
+			<List books={filtredData} setBooks={setBooks} />
 		</>
 	);
 }
